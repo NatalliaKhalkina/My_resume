@@ -20,11 +20,27 @@ html {
   align-items: end;
   flex-direction: column;
 }
+@media (max-width: 767px) {
+  .header {
+    font-size: 3rem;
+    padding-top: 2rem;
+  }
+}
 .header_title {
   font-size: 5rem;
 }
+@media (max-width: 767px) {
+  .header_title {
+    font-size: 3rem;
+  }
+}
 .header_profession {
   font-size: 4rem;
+}
+@media (max-width: 767px) {
+  .header_profession {
+    font-size: 3rem;
+  }
 }
 .header_experience {
   font-size: 2.5rem;
@@ -34,19 +50,44 @@ html {
   display: grid;
   grid-template-columns: 1fr 3fr;
 }
+@media (max-width: 767px) {
+  .main {
+    grid-template-columns: none;
+  }
+}
 .main_container {
   margin-top: -100px;
   border: 5px solid rgb(101, 90, 61);
   max-width: 400px;
   padding: 2rem;
 }
+@media (max-width: 676px) {
+  .main_container {
+    border: 0;
+    margin-top: 0;
+  }
+}
+.main_container_contact {
+  display: flex;
+  gap: 0.5rem;
+}
 .main_container_contact_img {
   width: 400px;
+}
+@media (max-width: 676px) {
+  .main_container_contact_img {
+    width: 150px;
+  }
 }
 .main_container_contact_info_aboutMe {
   font-size: 2.5rem;
   padding-top: 10px;
   list-style-type: none;
+}
+@media (max-width: 676px) {
+  .main_container_contact_info_aboutMe {
+    font-size: 2rem;
+  }
 }
 .main_container_skills {
   margin-top: 30px;
@@ -135,4 +176,14 @@ html {
   border: 1px solid rgb(187, 180, 154);
   width: 0.2rem;
   background: rgb(187, 180, 154);
+}
+
+@media (max-width: 767px) {
+  .center {
+    padding-left: calc(50% - 384px);
+    padding-right: calc(50% - 384px);
+  }
+  .header {
+    align-items: center;
+  }
 }/*# sourceMappingURL=style.css.map */
