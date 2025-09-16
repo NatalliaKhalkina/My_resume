@@ -1,4 +1,5 @@
 $colorSelector: rgb(187, 180, 154);
+$colorSelectorBarBgr: rgb(237 236 234);
 
 html {
     font-family: 'Inter';
@@ -11,8 +12,10 @@ html {
 }
 
 .center {
-    padding-left: calc(50% - 600px);
-    padding-right: calc(50% - 600px);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 
@@ -24,25 +27,12 @@ html {
     align-items: end;
     flex-direction: column;
 
-    // @media (max-width: 767px) {
-    //     // font-size: 3rem;
-    //     // padding-top: 2rem;
-    // }
-
     &_title {
         font-size: 5rem;
-
-        // @media (max-width:767px) {
-        //     font-size: 3rem;
-        // }
     }
 
     &_profession {
         font-size: 4rem;
-
-        // @media (max-width:767px) {
-        //     font-size: 3rem;
-        // }
     }
 
     &_experience {
@@ -54,33 +44,15 @@ html {
     display: grid;
     grid-template-columns: 1fr 3fr;
 
-    // @media (max-width:767px) {
-    //     grid-template-columns: none
-    // }
-
     &_container {
         margin-top: -100px;
         border: 5px solid rgb(101, 90, 61);
         max-width: 400px;
         padding: 2rem;
 
-        // @media (max-width:676px) {
-        //     border: 0;
-        //     margin-top: 0;
-        // }
-
         &_contact {
-            // @media (max-width:767px) {
-            //     display: flex;
-            //     gap: 0.5rem;
-            // }
-
             &_img {
                 width: 400px;
-
-                // @media (max-width:676px) {
-                //     width: 150px;
-                // }
             }
 
             &_info {
@@ -88,23 +60,43 @@ html {
                     font-size: 2.5rem;
                     padding-top: 10px;
                     list-style-type: none;
-
-                    // @media (max-width:676px) {
-                    //     font-size: 2rem;
-
-                    // }
                 }
             }
         }
 
         &_skills {
-            margin-top: 30px;
+            margin-top: 3rem;
             font-size: 2.5rem;
-            list-style-position: inside;
+            max-width: 400px;
 
             &_hard {
-                padding-top: 20px;
-                line-height: 1.5em;
+                max-width: 400px;
+                margin: 20px auto;
+
+                &_count {
+                    margin-bottom: 20px;
+
+                    &_name {
+                        font-weight: bold;
+                        margin-bottom: 8px;
+                    }
+
+                    &_progress {
+                        width: 100%;
+                        background-color: $colorSelectorBarBgr;
+                        height: 2rem;
+                        border-radius: 1rem;
+                        overflow: hidden;
+
+                        &_bar {
+                            height: 100%;
+                            width: 0;
+                            background-color: $colorSelector;
+                            border-radius: 1rem;
+                            transition: width 1s ease;
+                        }
+                    }
+                }
             }
         }
     }

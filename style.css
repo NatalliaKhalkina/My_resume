@@ -9,8 +9,10 @@ html {
 }
 
 .center {
-  padding-left: calc(50% - 600px);
-  padding-right: calc(50% - 600px);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .header {
@@ -49,13 +51,34 @@ html {
   list-style-type: none;
 }
 .main_container_skills {
-  margin-top: 30px;
+  margin-top: 3rem;
   font-size: 2.5rem;
-  list-style-position: inside;
+  max-width: 400px;
 }
 .main_container_skills_hard {
-  padding-top: 20px;
-  line-height: 1.5em;
+  max-width: 400px;
+  margin: 20px auto;
+}
+.main_container_skills_hard_count {
+  margin-bottom: 20px;
+}
+.main_container_skills_hard_count_name {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.main_container_skills_hard_count_progress {
+  width: 100%;
+  background-color: rgb(237, 236, 234);
+  height: 2rem;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.main_container_skills_hard_count_progress_bar {
+  height: 100%;
+  width: 0;
+  background-color: rgb(187, 180, 154);
+  border-radius: 1rem;
+  transition: width 1s ease;
 }
 .main_contant {
   padding: 2rem;
