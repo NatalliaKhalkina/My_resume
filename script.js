@@ -1,3 +1,5 @@
+import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.mjs'
+
 const skills = [
     { name: 'HTML', percent: 90 },
     { name: 'CSS', percent: 90 },
@@ -35,24 +37,70 @@ skills.forEach(skill => {
     skillDiv.appendChild(progressDiv);
     container.appendChild(skillDiv);
 
-    // // Обработчик при наведении
-    // skillDiv.addEventListener('mouseenter', () => {
-    //     barDiv.style.width = barDiv.getAttribute('data-persent') + '%';
-    // })
-
-    // // Обработчик при уходе
-    // skillDiv.addEventListener('mouseleave', () => {
-    //     barDiv.style.width = '0';
-    // })
 
     // Обработчик при наведении
     skillDiv.addEventListener('mouseenter', () => {
-        // Анимация заполнения
         barDiv.style.width = barDiv.getAttribute('data-percent') + '%';
     });
     // Обработчик при уходе мыши
     skillDiv.addEventListener('mouseleave', () => {
-        // Возврат к нулю
         barDiv.style.width = '0';
     });
 })
+
+// Слайдер опыта
+document.addEventListener('DOMContentLoaded', () => {
+    const swiper = new Swiper('.swiper', {
+        loop: true,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+    });
+});
+
+//Форма - обратная связь
+// Ловим кнопки и саму форму
+const btnYes = document.getElementById('btnYes');
+const btnNo = document.getElementById('btnNo');
+const form = document.getElementById('contactForm');
+
+// при клике показываем форму
+btnYes.addEventListener('click', () => {
+    form.style.display = 'block';
+})
+
+// Убегающая кнопка
+btnNo.addEventListener('mouseenter', () => {
+    const container = document.getElementById('jobOffer');
+    // получаем размеры контейнера
+    const containerRect = container.getBoundingClientRect();
+    const btnRect = btnNo.getBoundingClientRect();
+
+    // координаты смещения кнопки Нет
+    const maxX = containerRect.width - btnRect.width;
+    const maxY = containerRect.height - btnRect.height;
+
+    // генерируем случайные координаты для смещение
+    const newLeft = Math.floor(Math.random() * maxX);
+    const newTop = Math.floor(Math.random() * maxY);
+
+    // позиция кнопки
+    btnNo.style.position = 'relative';
+    btnNo.style.left = newLeft + 'px';
+    btnNo.style.top = newTop = 'px';
+});
+
+// отправка формы
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert(`Спасибо! Ваши контакты: ${form.contacts.value || form.querySelector('input').value}`);
+    form.reset();
+});
+
+
+

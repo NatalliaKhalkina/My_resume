@@ -1,9 +1,15 @@
-$colorSelector: rgb(187, 180, 154);
-$colorSelectorBarBgr: rgb(237 236 234);
+:root {
+    --colorSelector: rgb(187, 180, 154);
+    --colorBorder: rgb(101, 90, 61);
+    --colorSelectorBarBgr: rgb(237, 236, 234);
+    --colorText: rgba(7, 7, 5, 0.807);
+    --swiper-theme-color: rgb(101, 90, 61);
+}
 
 html {
     font-family: 'Inter';
     font-size: 10px;
+    color: var(--colorText);
 }
 
 * {
@@ -12,7 +18,7 @@ html {
 }
 
 .center {
-    max-width: 1200px;
+    max-width: 120rem;
     margin: 0 auto;
     padding-left: 1rem;
     padding-right: 1rem;
@@ -21,7 +27,7 @@ html {
 
 
 .header {
-    background: rgb(187, 180, 154);
+    background: var(--colorSelector);
     padding-top: 10rem;
     display: flex;
     align-items: end;
@@ -45,20 +51,20 @@ html {
     grid-template-columns: 1fr 3fr;
 
     &_container {
-        margin-top: -100px;
-        border: 5px solid rgb(101, 90, 61);
-        max-width: 400px;
+        margin-top: -10rem;
+        border: 0.5rem solid var(--colorBorder);
+        max-width: 40rem;
         padding: 2rem;
 
         &_contact {
             &_img {
-                width: 400px;
+                width: 40rem;
             }
 
             &_info {
                 &_aboutMe {
                     font-size: 2.5rem;
-                    padding-top: 10px;
+                    padding-top: 1rem;
                     list-style-type: none;
                 }
             }
@@ -67,23 +73,23 @@ html {
         &_skills {
             margin-top: 3rem;
             font-size: 2.5rem;
-            max-width: 400px;
+            max-width: 40rem;
 
             &_hard {
-                max-width: 400px;
-                margin: 20px auto;
+                max-width: 40rem;
+                margin: 2rem auto;
 
                 &_count {
-                    margin-bottom: 20px;
+                    margin-bottom: 2rem;
 
                     &_name {
                         font-weight: bold;
-                        margin-bottom: 8px;
+                        margin-bottom: 0.8rem;
                     }
 
                     &_progress {
                         width: 100%;
-                        background-color: $colorSelectorBarBgr;
+                        background-color: var(--colorSelectorBarBgr);
                         height: 2rem;
                         border-radius: 1rem;
                         overflow: hidden;
@@ -91,7 +97,7 @@ html {
                         &_bar {
                             height: 100%;
                             width: 0;
-                            background-color: $colorSelector;
+                            background-color: var(--colorSelector);
                             border-radius: 1rem;
                             transition: width 1s ease;
                         }
@@ -101,8 +107,9 @@ html {
         }
     }
 
-    &_contant {
-        padding: 2rem;
+    &_content {
+        padding-left: 2rem;
+        max-width: 74rem;
 
         &_about_me {
             &_text {
@@ -120,19 +127,14 @@ html {
             margin-top: 4rem;
         }
 
-        &_years {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-size: 2.4rem;
-        }
-
         &_profession {
             font-size: 2.8rem;
+            text-align: center;
         }
 
         &_company {
             font-size: 2.6rem;
+            text-align: center;
             font-weight: 500;
         }
 
@@ -140,20 +142,28 @@ html {
             display: flex;
             gap: 1rem;
             margin-top: 2rem;
+
+            &_prof {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
         }
 
-        &_prof {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        &_univesity {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
+        &_years {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-top: 1rem;
         }
     }
+}
+
+.education {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .list {
@@ -169,11 +179,18 @@ html {
     z-index: 2;
 }
 
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
 .background_title {
-    background: $colorSelector;
+    background: var(--colorSelector);
     width: 20rem;
     height: 4rem;
-    border: 1px solid $colorSelector;
+    border: 0.1rem solid var(--colorSelector);
     position: relative;
     z-index: 1;
     margin-left: 5rem;
@@ -188,15 +205,135 @@ html {
 }
 
 .line {
-    border: 1px solid $colorSelector;
+    border: 0.1rem solid var(--colorSelector);
     width: 0.2rem;
-    background: $colorSelector;
+    background: var(--colorSelector);
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    width: 3.5rem;
+    height: 3.5rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+// меняем цвет svg стрелки
+.swiper-button-next svg path,
+.swiper-button-prev svg path {
+    fill: var(--colorSelector);
+}
+
+.swiper-button-next {
+    right: 1rem;
+}
+
+.swiper-button-prev {
+    left: 1rem;
+}
+
+.swiper {
+    width: 100%;
+    margin: auto;
+
+}
+
+.swiper-slide {
+    background: #fff;
+    border-radius: 0.6rem;
+    padding: 2rem;
+    box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.1);
+
+
+}
+
+.feedback {
+    font-size: 2.6rem;
+    font-weight: bold;
+
+    &_btn {
+        display: inline-block;
+        box-sizing: border-box;
+        padding: 0 2.5rem;
+        margin: 0 1.5rem 1.5rem 0;
+        outline: none;
+        border: 0.1rem solid var(--colorSelector);
+        border-radius: 5rem;
+        height: 4.6rem;
+        line-height: 4.6rem;
+        font-size: 2rem;
+        font-weight: 600;
+        text-decoration: none;
+        color: var(--colorText);
+        background-color: #fff;
+        box-shadow: 0 0.4rem 0.6rem var(--colorSelector / 10%), 0 1px 3px rgb(0 0 0 / 8%);
+        cursor: pointer;
+        user-select: none;
+        appearance: none;
+        touch-action: manipulation;
+        vertical-align: top;
+        transition: box-shadow 0.2s;
+
+        &:focus-visible {
+            border: 1px solid #4c51f9;
+            outline: none;
+        }
+
+        &:hover {
+            transition: all 0.2s;
+            box-shadow: 0 0.7rem 1.4rem rgb(65 132 144 / 10%), 0 0.3rem 0.6rem rgb(0 0 0 / 8%);
+        }
+
+        &:active {
+            background-color: var(--colorSelector);
+        }
+
+        &:disabled {
+            background-color: #eee;
+            border-color: #eee;
+            color: var(--colorText);
+            cursor: not-allowed;
+        }
+    }
+
+    &_form {
+        display: none;
+
+        &_input {
+            width: 100%;
+            max-width: 40rem;
+            padding: 1rem 1.4rem;
+            font-size: 1.8rem;
+            border: 0.2rem solid var(--colorSelector);
+            border-radius: 0.8rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            outline: none;
+        }
+    }
+}
+
+// убегающая кнопка
+.btnNo {
+    position: relative;
+    transition: left 0.3s ease, top 0.3 ease;
+    cursor: pointer;
 }
 
 @media(max-width:767px) {
     .center {
-        padding-left: calc(50% - 384px);
-        padding-right: calc(50% - 384px);
+        max-width: 100%;
+        margin: 0 auto;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        box-sizing: border-box;
     }
 
     .header {
@@ -214,15 +351,18 @@ html {
     }
 
     .main {
-        grid-template-columns: none;
+        grid-template-columns: unset;
 
         &_container {
             border: 0;
             margin-top: 0;
+            padding: 1rem 0 0 0;
+
 
             &_contact {
                 display: flex;
                 gap: 0.5rem;
+                justify-content: space-between;
 
                 &_img {
                     width: 150px;
@@ -235,5 +375,25 @@ html {
                 }
             }
         }
+
+        &_content {
+            max-width: 40rem;
+            padding-left: 0;
+
+            &_prof {
+                width: 32rem;
+            }
+        }
     }
+
+    .title {
+        align-items: unset;
+        font-size: 2rem;
+    }
+
+    .list {
+        text-align: left;
+    }
+
+
 }
